@@ -25,7 +25,11 @@ This package does not import standalone data.
 - Password: use the app password displayed by Umbrel. It is unique to the Umbrel
   installation/app ID, is not committed here, and remains stable across restarts/updates.
 - Umbrel's **Require Umbrel login** protection remains enabled by default.
-- Persistent data: `${APP_DATA_DIR}/data/storage`, mounted at `/data` in the app.
+- Persistent data: `${APP_DATA_DIR}/data/storage`, visible as `/data/storage` inside
+  the app. The bind mount is `${APP_DATA_DIR}/data:/data`; this deliberately avoids
+  Umbrel's legacy rewrite of `/data/storage` in host mount sources.
+- Package 1.0.1 fixes the mount configuration while keeping application image 1.0.0.
+  The data directory stays in place; no database migration or file move is needed.
 - No host Docker socket, host network, privileged mode, or extra capabilities.
 
 The first install starts empty. The app has a local SQLite database and object files;

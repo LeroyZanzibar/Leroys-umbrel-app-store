@@ -4,7 +4,7 @@ storage:
   dataRoot: data
 category: finance
 name: Sol Diagnostics
-version: "1.0.0"
+version: "1.0.1"
 tagline: Analyze solar farm performance and track production losses
 icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v1.0.0/public/favicon.svg
 description: >-
@@ -23,8 +23,10 @@ description: >-
   lookups use external services. Closing the browser can pause an unfinished
   analysis until a later request resumes it.
 releaseNotes: >-
-  Initial community-store package with per-install credentials, persistent local
-  storage, and a versioned container image.
+  Packaging-only fix for startup failures on umbrelOS: mount the app's data root
+  to avoid the legacy storage-path rewrite. Existing data stays in its original
+  storage subfolder. Application image and database schema remain at 1.0.0;
+  no data migration or image rebuild is required.
 developer: LeroyZanzibar
 website: https://github.com/LeroyZanzibar/sol-diagnostics
 dependencies: []

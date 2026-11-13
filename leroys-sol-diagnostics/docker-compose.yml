@@ -13,13 +13,15 @@ services:
     environment:
       SOL_USERNAME: admin
       SOL_PASSWORD: "${APP_PASSWORD}"
-      SOL_DATA_DIR: /data
+      SOL_DATA_DIR: /data/storage
       HOST: 0.0.0.0
       PORT: "3080"
       NODE_OPTIONS: --max-old-space-size=2048
       TZ: UTC
     volumes:
-      - "${APP_DATA_DIR}/data/storage:/data"
+      # Mount the root: Umbrel rewrites '/data/storage' in HOST source paths.
+      # The internal storage subdirectory is not subject to that rewrite.
+      - "${APP_DATA_DIR}/data:/data"
     security_opt:
       - no-new-privileges:true
     cap_drop:

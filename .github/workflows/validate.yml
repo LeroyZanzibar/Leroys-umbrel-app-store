@@ -51,4 +51,8 @@ jobs:
             npm run lint:apps -- "$app_id" --check-images
             image="$(node --input-type=module -e 'import fs from "node:fs"; import YAML from "yaml"; console.log(YAML.parse(fs.readFileSync(process.argv[1], "utf8")).services.server.image)' "$app_id/docker-compose.yml")"
             docker pull --platform linux/amd64 "$image"
+            if [ "$app_id" = leroys-sol-diagnostics ]; then
+              node --input-type=module -e 'import fs from "node:fs"; import YAML from "yaml"; console.log(JSON.stringify(YAML.parse(fs.readFileSync(process.argv[1], "utf8")).services.server))' "$app_id/docker-compose.yml" > "$RUNNER_TEMP/sol-server.json"
+              node "$GITHUB_WORKSPACE/store/scripts/check-storage.mjs" "$RUNNER_TEMP/sol-server.json"
+            fi
           done
