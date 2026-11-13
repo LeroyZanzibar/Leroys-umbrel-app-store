@@ -1,0 +1,29 @@
+services:
+  app_proxy:
+    environment:
+      APP_HOST: leroys-sol-diagnostics_server_1
+      APP_PORT: 3080
+
+  server:
+    image: ghcr.io/leroyzanzibar/sol-diagnostics:1.0.0@sha256:2d2b969d4fdd86f23eeab19ed589820a5f65aa8d38814a4f728264187208cb75
+    user: "1000:1000"
+    init: true
+    restart: on-failure
+    stop_grace_period: 2m
+    environment:
+      SOL_USERNAME: admin
+      SOL_PASSWORD: "${APP_PASSWORD}"
+      SOL_DATA_DIR: /data
+      HOST: 0.0.0.0
+      PORT: "3080"
+      NODE_OPTIONS: --max-old-space-size=2048
+      TZ: UTC
+    volumes:
+      - "${APP_DATA_DIR}/data/storage:/data"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=128m

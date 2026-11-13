@@ -1,0 +1,54 @@
+name: Validate Umbrel packages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out store
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          path: store
+          persist-credentials: false
+      - name: Check out pinned Umbrel packaging checks
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: getumbrel/umbrel-apps
+          ref: 1d9cd0b7982dc832d501d7c203be38c3e6f1b1f6
+          path: reference
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Install linter dependencies without lifecycle scripts
+        working-directory: reference
+        run: npm ci --ignore-scripts --no-audit --no-fund --fetch-timeout=15000 --fetch-retries=0
+      - name: Check packages, public images, architectures, and port conflicts
+        working-directory: reference
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          manifests=("$GITHUB_WORKSPACE"/store/*/umbrel-app.yml)
+          test "${#manifests[@]}" -gt 0
+          export DOCKER_CONFIG="$RUNNER_TEMP/anonymous-docker"
+          mkdir -p "$DOCKER_CONFIG"
+          for manifest in "${manifests[@]}"; do
+            app_dir="$(dirname "$manifest")"
+            app_id="$(basename "$app_dir")"
+            test ! -e "$app_id"
+            cp -a "$app_dir" ./
+            npm run lint:apps -- "$app_id" --check-images
+            image="$(node --input-type=module -e 'import fs from "node:fs"; import YAML from "yaml"; console.log(YAML.parse(fs.readFileSync(process.argv[1], "utf8")).services.server.image)' "$app_id/docker-compose.yml")"
+            docker pull --platform linux/amd64 "$image"
+          done

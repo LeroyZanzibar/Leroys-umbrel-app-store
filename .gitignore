@@ -1,0 +1,9 @@
+.env
+.env.*
+*.log
+.DS_Store
+# Do not commit runtime data copied back from a running Umbrel.
+*/data/*
+!*/data/storage/
+*/data/storage/*
+!*/data/storage/.gitkeep

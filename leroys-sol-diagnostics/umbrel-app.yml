@@ -1,0 +1,40 @@
+manifestVersion: 1
+id: leroys-sol-diagnostics
+storage:
+  dataRoot: data
+category: finance
+name: Sol Diagnostics
+version: "1.0.0"
+tagline: Analyze solar farm performance and track production losses
+icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v1.0.0/public/favicon.svg
+description: >-
+  Diagnose solar farm performance using your own locally stored data. Configure
+  sites, arrays, inverters, and transformers; import performance CSVs; review
+  detected issues and recurring losses; and track maintenance events.
+
+
+  Sign in as admin using the app password shown by Umbrel. Your existing Umbrel
+  login also protects access to the app. The first installation starts empty;
+  hosted data and any separate Docker installation are not migrated automatically.
+
+
+  Site configuration, uploads, analyses, reviews, and preferences are stored on
+  your Umbrel. No Cloudflare or ChatGPT account is required. Maps and postal-code
+  lookups use external services. Closing the browser can pause an unfinished
+  analysis until a later request resumes it.
+releaseNotes: >-
+  Initial community-store package with per-install credentials, persistent local
+  storage, and a versioned container image.
+developer: LeroyZanzibar
+website: https://github.com/LeroyZanzibar/sol-diagnostics
+dependencies: []
+repo: https://github.com/LeroyZanzibar/sol-diagnostics
+support: https://github.com/LeroyZanzibar/sol-diagnostics/issues
+port: 3080
+gallery: []
+path: ""
+defaultUsername: admin
+defaultPassword: ""
+deterministicPassword: true
+submitter: LeroyZanzibar
+submission: https://github.com/LeroyZanzibar/Leroys-umbrel-app-store
