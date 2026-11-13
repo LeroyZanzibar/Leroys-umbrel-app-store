@@ -11,15 +11,16 @@ This is an independent community store, not an official Umbrel app-store endorse
 4. Open **Leroy's App Store**, choose **Sol Diagnostics**, and install.
 
 No terminal, GitHub account, or registry credentials are required to pull the public image.
-If port 3080 is already used by a standalone Sol Diagnostics deployment or another app,
-resolve the conflict before installing. This package does not import standalone data.
+This package opens on port **3090**; the standalone Docker edition defaults to
+3080. Check your other custom apps for a 3090 conflict before installing.
+This package does not import standalone data.
 
 ## Sol Diagnostics
 
 - App ID: `leroys-sol-diagnostics` (keep this stable across updates).
 - Source: https://github.com/LeroyZanzibar/sol-diagnostics
 - Image: `ghcr.io/leroyzanzibar/sol-diagnostics`
-- Browser launch port: **3080** through Umbrel's app proxy.
+- Browser launch port: **3090** through Umbrel's app proxy (internal server port 3080).
 - Username: **admin**.
 - Password: use the app password displayed by Umbrel. It is unique to the Umbrel
   installation/app ID, is not committed here, and remains stable across restarts/updates.

@@ -30,7 +30,7 @@ website: https://github.com/LeroyZanzibar/sol-diagnostics
 dependencies: []
 repo: https://github.com/LeroyZanzibar/sol-diagnostics
 support: https://github.com/LeroyZanzibar/sol-diagnostics/issues
-port: 3080
+port: 3090
 gallery: []
 path: ""
 defaultUsername: admin
