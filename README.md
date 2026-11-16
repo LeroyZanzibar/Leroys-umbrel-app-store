@@ -18,7 +18,7 @@ This package does not import standalone data.
 ## Sol Diagnostics
 
 - App ID: `leroys-sol-diagnostics` (keep this stable across updates).
-- Package/application version: **2026.11.15.1** ([release notes](https://github.com/LeroyZanzibar/sol-diagnostics/releases/tag/v2026.11.15.1)).
+- Package/application version: **2026.11.15.2** ([release notes](https://github.com/LeroyZanzibar/sol-diagnostics/releases/tag/v2026.11.15.2)).
 - Source: https://github.com/LeroyZanzibar/sol-diagnostics
 - Image: `ghcr.io/leroyzanzibar/sol-diagnostics`
 - Browser launch port: **3090** through Umbrel's app proxy (internal server port 3080).
@@ -29,10 +29,10 @@ This package does not import standalone data.
 - Persistent data: `${APP_DATA_DIR}/data/storage`, visible as `/data/storage` inside
   the app. The bind mount is `${APP_DATA_DIR}/data:/data`; this deliberately avoids
   Umbrel's legacy rewrite of `/data/storage` in host mount sources.
-- Package 2026.11.15.1 fixes the missing `maintenance_tasks` table that blocked
-  Depot performance uploads and analysis. A new additive startup migration preserves
-  existing task records and does not invoke legacy cleanup or delete performance data.
-  The data directory, credentials, and previous features remain in place; no file move is needed.
+- Package 2026.11.15.2 groups Timeline rows by issue and equipment, preserving
+  separate active date ranges and expandable occurrences across recurring episodes.
+  Different equipment stays separate even when its display names match.
+  Issue detection, saved records, storage paths, credentials, and the previous Depot upload fix remain unchanged.
   Back up complete app storage before updating. Bulk array-model upload is not included.
 - No host Docker socket, host network, privileged mode, or extra capabilities.
 
