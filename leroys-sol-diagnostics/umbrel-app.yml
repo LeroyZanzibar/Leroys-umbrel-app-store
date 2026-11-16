@@ -4,9 +4,9 @@ storage:
   dataRoot: data
 category: finance
 name: Sol Diagnostics
-version: "2026.11.15.2"
+version: "2026.11.16.1"
 tagline: Analyze solar farm performance and track production losses
-icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.15.2/public/favicon.svg
+icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.16.1/public/favicon.svg
 description: >-
   Diagnose solar farm performance using your own locally stored data. Configure
   sites, arrays, inverters, and transformers; import performance CSVs; review
@@ -23,13 +23,25 @@ description: >-
   lookups use external services. Closing the browser can pause an unfinished
   analysis until a later request resumes it.
 releaseNotes: >-
-  Timeline now groups the same issue on the same equipment into one row, across
-  recurring episodes and standalone findings. Separate active date ranges remain
-  visible, and rows expand to show individual occurrences. Different equipment
-  remains separate even when display names match. Category and severity filters,
-  sorting, and loss details are preserved. This is a display-only change: issue
-  detection, recurring records, reviews, and stored data are unchanged. Includes
-  the previous Depot upload fix. Back up complete app data before updating.
+  Cumulative, versioned per-site SQLite performance data now supports CSV/API import
+  previews and explicit overlap approval. Corrections replace only supplied matching
+  timestamp/channel values; omissions and blank/null corrections preserve saved
+  values. Saved analyses, evidence, and review history are retained, with Manage
+  Analyses for current/historical selection. Performance issues is now Findings.
+  Findings, Summaries, Timeline, and supported exports share data-freshness filters;
+  legacy results without sufficient provenance remain Freshness unknown. Failed or
+  canceled reruns preserve published results. After a failed first attempt, Run
+  analysis uses current data and the current model; Retry analysis uses that
+  attempt's original saved inputs.
+
+
+  Before the actual app update or migration, stop the app and back up all app
+  storage together: shared and per-site SQLite databases, their required SQLite
+  state files, and object files. Retained legacy CSVs require explicit migration
+  preview/apply before unrelated cumulative uploads. Original sources and saved
+  history are preserved; invalid legacy input may need correction. Sources already
+  deleted by older versions cannot be recovered. Publishing this listing does not
+  install the app update.
 developer: LeroyZanzibar
 website: https://github.com/LeroyZanzibar/sol-diagnostics
 dependencies: []
