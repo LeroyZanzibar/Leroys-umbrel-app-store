@@ -4,9 +4,9 @@ storage:
   dataRoot: data
 category: finance
 name: Sol Diagnostics
-version: "2026.11.14.1"
+version: "2026.11.15.1"
 tagline: Analyze solar farm performance and track production losses
-icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.14.1/public/favicon.svg
+icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.15.1/public/favicon.svg
 description: >-
   Diagnose solar farm performance using your own locally stored data. Configure
   sites, arrays, inverters, and transformers; import performance CSVs; review
@@ -23,12 +23,13 @@ description: >-
   lookups use external services. Closing the browser can pause an unfinished
   analysis until a later request resumes it.
 releaseNotes: >-
-  Add bulk Site settings CSV upload with a downloadable template, existing-site
-  export, row-by-row preview, validation, and atomic create/update. Rename the
-  displayed Foundry theme to Light - alternate while preserving saved preferences.
-  Releases now use YYYY.MM.DD.X calendar versions. Bulk array-model upload is not
-  included. The storage-path fix from package 1.0.1 is retained; existing data and
-  credentials stay in place, with no database migration required. Back up the
+  Fix Depot performance uploads and analysis failing with "no such table:
+  maintenance_tasks". A new additive startup migration creates the missing table
+  without running legacy cleanup or deleting data. Existing maintenance task
+  records and active-cleanup safety checks are preserved. Startup refuses an
+  incompatible maintenance table rather than bypassing safety checks. Includes
+  fresh-install, upgrade, restart, and authenticated Depot upload regression tests.
+  Storage paths, credentials, and other site data stay in place. Back up the
   complete app data before updating.
 developer: LeroyZanzibar
 website: https://github.com/LeroyZanzibar/sol-diagnostics
