@@ -4,9 +4,9 @@ storage:
   dataRoot: data
 category: finance
 name: Sol Diagnostics
-version: "2026.11.15.1"
+version: "2026.11.15.2"
 tagline: Analyze solar farm performance and track production losses
-icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.15.1/public/favicon.svg
+icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.15.2/public/favicon.svg
 description: >-
   Diagnose solar farm performance using your own locally stored data. Configure
   sites, arrays, inverters, and transformers; import performance CSVs; review
@@ -23,14 +23,13 @@ description: >-
   lookups use external services. Closing the browser can pause an unfinished
   analysis until a later request resumes it.
 releaseNotes: >-
-  Fix Depot performance uploads and analysis failing with "no such table:
-  maintenance_tasks". A new additive startup migration creates the missing table
-  without running legacy cleanup or deleting data. Existing maintenance task
-  records and active-cleanup safety checks are preserved. Startup refuses an
-  incompatible maintenance table rather than bypassing safety checks. Includes
-  fresh-install, upgrade, restart, and authenticated Depot upload regression tests.
-  Storage paths, credentials, and other site data stay in place. Back up the
-  complete app data before updating.
+  Timeline now groups the same issue on the same equipment into one row, across
+  recurring episodes and standalone findings. Separate active date ranges remain
+  visible, and rows expand to show individual occurrences. Different equipment
+  remains separate even when display names match. Category and severity filters,
+  sorting, and loss details are preserved. This is a display-only change: issue
+  detection, recurring records, reviews, and stored data are unchanged. Includes
+  the previous Depot upload fix. Back up complete app data before updating.
 developer: LeroyZanzibar
 website: https://github.com/LeroyZanzibar/sol-diagnostics
 dependencies: []
