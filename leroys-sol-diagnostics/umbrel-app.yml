@@ -4,9 +4,9 @@ storage:
   dataRoot: data
 category: finance
 name: Sol Diagnostics
-version: "2026.11.19.1"
+version: "2026.11.19.2"
 tagline: Analyze solar farm performance and track production losses
-icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.19.1/public/favicon.svg
+icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.19.2/public/favicon.svg
 description: >-
   Diagnose solar farm performance using your own locally stored data. Configure
   sites, arrays, inverters, and transformers; import performance CSVs; review
@@ -23,22 +23,20 @@ description: >-
   lookups use external services. Closing the browser can pause an unfinished
   analysis until a later request resumes it.
 releaseNotes: >-
-  Add manual VCOM imports alongside CSV uploads in the Data, API setup, Field
-  mapping, and Activity workspace. Save encrypted server-side credentials and
-  explicit equipment mappings, select dates, download, review the preview, and
-  explicitly Apply. Submitted downloads continue without an open browser and
-  recover after restart, respecting provider quota waits. A status-write failure
-  after Apply no longer blocks the next download or duplicates imported readings.
-  Export the complete applied dataset as a revision-pinned CSV. Existing readings,
-  blank/omitted corrections, saved analyses, and review history retain their
-  preservation rules. No scheduled imports or automatic analysis are enabled.
+  Exclude individual VCOM fields from new imports while retaining existing
+  readings. Destination suggestions now reuse the CSV equipment matcher with
+  confidence levels, preserving saved and manual choices. Connection testing
+  shows immediate progress and clear status through saved-state verification.
+  Saved API key, username, and password fields display safe fixed dots without
+  exposing or resubmitting credentials.
 
 
-  Back up the complete app storage before updating, including shared/per-site
-  SQLite databases, their state files, object files, and the private VCOM master
-  key after it is created. The new schema migration is additive. Do not delete or
-  regenerate the private key when moving data. Live VCOM access requires your
-  provider credentials; no live provider import is performed by this update.
+  Explicit preview/Apply, overlap approval, CSV imports, saved analyses, and
+  retained history remain unchanged. No schema migration, scheduled import, or
+  automatic analysis is introduced. Back up the complete app storage before
+  updating, including all SQLite databases, state/object files, and the private
+  VCOM master key. Live VCOM credentials and imports are not exercised by this
+  update.
 developer: LeroyZanzibar
 website: https://github.com/LeroyZanzibar/sol-diagnostics
 dependencies: []
