@@ -18,7 +18,7 @@ This package does not import standalone data.
 ## Sol Diagnostics
 
 - App ID: `leroys-sol-diagnostics` (keep this stable across updates).
-- Package/application version: **2026.11.19.1** ([release notes](https://github.com/LeroyZanzibar/sol-diagnostics/releases/tag/v2026.11.19.1)).
+- Package/application version: **2026.11.19.2** ([release notes](https://github.com/LeroyZanzibar/sol-diagnostics/releases/tag/v2026.11.19.2)).
 - Source: https://github.com/LeroyZanzibar/sol-diagnostics
 - Image: `ghcr.io/leroyzanzibar/sol-diagnostics`
 - Browser launch port: **3090** through Umbrel's app proxy (internal server port 3080).
@@ -43,7 +43,19 @@ filesystem, a limited `/tmp`, dropped Linux capabilities, and `no-new-privileges
 The upstream linter's security-option warning is intentional: that option **reduces**
 privileges rather than granting host access.
 
-### Release 2026.11.19.1
+### Release 2026.11.19.2
+
+- Exclude individual VCOM fields; saved exclusions prevent new imports of those
+  fields while preserving existing readings.
+- Destination suggestions use the CSV equipment matcher and display confidence
+  levels without overwriting saved or manual choices.
+- Connection testing shows immediate progress and clear status through saved-state
+  verification. Saved API key, username and password fields show safe fixed dots.
+- Explicit preview/Apply, overlap approval, CSV imports and retained history remain
+  unchanged. No SQL migration, scheduler or automatic analysis is introduced.
+- Back up complete app storage, including the private VCOM key, before updating.
+
+### Previous release 2026.11.19.1
 
 - Manual VCOM imports share the **Data / API setup / Field mapping / Activity**
   workspace with existing CSV uploads. Save the connection and explicit mappings,
