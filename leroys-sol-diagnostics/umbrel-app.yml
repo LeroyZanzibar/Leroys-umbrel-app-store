@@ -4,9 +4,9 @@ storage:
   dataRoot: data
 category: finance
 name: Sol Diagnostics
-version: "2026.11.16.1"
+version: "2026.11.19.1"
 tagline: Analyze solar farm performance and track production losses
-icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.16.1/public/favicon.svg
+icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.19.1/public/favicon.svg
 description: >-
   Diagnose solar farm performance using your own locally stored data. Configure
   sites, arrays, inverters, and transformers; import performance CSVs; review
@@ -23,25 +23,22 @@ description: >-
   lookups use external services. Closing the browser can pause an unfinished
   analysis until a later request resumes it.
 releaseNotes: >-
-  Cumulative, versioned per-site SQLite performance data now supports CSV/API import
-  previews and explicit overlap approval. Corrections replace only supplied matching
-  timestamp/channel values; omissions and blank/null corrections preserve saved
-  values. Saved analyses, evidence, and review history are retained, with Manage
-  Analyses for current/historical selection. Performance issues is now Findings.
-  Findings, Summaries, Timeline, and supported exports share data-freshness filters;
-  legacy results without sufficient provenance remain Freshness unknown. Failed or
-  canceled reruns preserve published results. After a failed first attempt, Run
-  analysis uses current data and the current model; Retry analysis uses that
-  attempt's original saved inputs.
+  Add manual VCOM imports alongside CSV uploads in the Data, API setup, Field
+  mapping, and Activity workspace. Save encrypted server-side credentials and
+  explicit equipment mappings, select dates, download, review the preview, and
+  explicitly Apply. Submitted downloads continue without an open browser and
+  recover after restart, respecting provider quota waits. A status-write failure
+  after Apply no longer blocks the next download or duplicates imported readings.
+  Export the complete applied dataset as a revision-pinned CSV. Existing readings,
+  blank/omitted corrections, saved analyses, and review history retain their
+  preservation rules. No scheduled imports or automatic analysis are enabled.
 
 
-  Before the actual app update or migration, stop the app and back up all app
-  storage together: shared and per-site SQLite databases, their required SQLite
-  state files, and object files. Retained legacy CSVs require explicit migration
-  preview/apply before unrelated cumulative uploads. Original sources and saved
-  history are preserved; invalid legacy input may need correction. Sources already
-  deleted by older versions cannot be recovered. Publishing this listing does not
-  install the app update.
+  Back up the complete app storage before updating, including shared/per-site
+  SQLite databases, their state files, object files, and the private VCOM master
+  key after it is created. The new schema migration is additive. Do not delete or
+  regenerate the private key when moving data. Live VCOM access requires your
+  provider credentials; no live provider import is performed by this update.
 developer: LeroyZanzibar
 website: https://github.com/LeroyZanzibar/sol-diagnostics
 dependencies: []
