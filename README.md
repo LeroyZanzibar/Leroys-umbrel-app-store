@@ -18,7 +18,7 @@ This package does not import standalone data.
 ## Sol Diagnostics
 
 - App ID: `leroys-sol-diagnostics` (keep this stable across updates).
-- Package/application version: **2026.11.16.1** ([release notes](https://github.com/LeroyZanzibar/sol-diagnostics/releases/tag/v2026.11.16.1)).
+- Package/application version: **2026.11.19.1** ([release notes](https://github.com/LeroyZanzibar/sol-diagnostics/releases/tag/v2026.11.19.1)).
 - Source: https://github.com/LeroyZanzibar/sol-diagnostics
 - Image: `ghcr.io/leroyzanzibar/sol-diagnostics`
 - Browser launch port: **3090** through Umbrel's app proxy (internal server port 3080).
@@ -43,7 +43,23 @@ filesystem, a limited `/tmp`, dropped Linux capabilities, and `no-new-privileges
 The upstream linter's security-option warning is intentional: that option **reduces**
 privileges rather than granting host access.
 
-### Release 2026.11.16.1
+### Release 2026.11.19.1
+
+- Manual VCOM imports share the **Data / API setup / Field mapping / Activity**
+  workspace with existing CSV uploads. Save the connection and explicit mappings,
+  select dates, download, review the preview, then explicitly **Apply**.
+- Credentials stay encrypted on the server. Submitted downloads continue without
+  an open browser, resume after restart, and retain provider quota/reset waits.
+- Exact receipt recovery lets the next download proceed after a successful Apply
+  whose shared status write failed, without applying data twice.
+- Export all applied canonical data to a revision-pinned CSV. Existing omission,
+  blank-correction, saved-analysis and review-history protections remain intact.
+- No scheduled imports or automatic analysis. The one-calendar-year limit applies
+  to each requested download, not to retained history.
+- Backups must retain `manual-vcom-master.key` with the rest of app storage once
+  the key has been created. Missing or mismatched keys fail closed.
+
+### Previous release 2026.11.16.1
 
 - CSV and JSON API imports accumulate performance data per site, with a preview
   and explicit approval before applying overlaps.
@@ -102,7 +118,9 @@ unknown**, rather than being treated as current.
 Before the actual app update or migration, stop the app and back up **the entire
 `${APP_DATA_DIR}/data/storage` directory together**: the shared application SQLite
 database, every per-site database under `performance/`, their required SQLite state
-files, and all object files (including retained sources, results, and evidence).
+files, all object files (including retained sources, results, and evidence), and
+`manual-vcom-master.key` for encrypted VCOM credentials. Preserve that key; do not
+regenerate it or move the databases without it.
 Alternatively, use a verified Umbrel backup that includes all of this app storage.
 Verify that the backup can be restored, and keep the previous image digest and manifest.
 Do not run the source repository's standalone Compose backup/restore scripts against
