@@ -18,7 +18,7 @@ This package does not import standalone data.
 ## Sol Diagnostics
 
 - App ID: `leroys-sol-diagnostics` (keep this stable across updates).
-- Package/application version: **2026.11.19.4** ([release notes](https://github.com/LeroyZanzibar/sol-diagnostics/releases/tag/v2026.11.19.4)).
+- Package/application version: **2026.11.20.1** ([release notes](https://github.com/LeroyZanzibar/sol-diagnostics/releases/tag/v2026.11.20.1)).
 - Source: https://github.com/LeroyZanzibar/sol-diagnostics
 - Image: `ghcr.io/leroyzanzibar/sol-diagnostics`
 - Browser launch port: **3090** through Umbrel's app proxy (internal server port 3080).
@@ -43,7 +43,21 @@ filesystem, a limited `/tmp`, dropped Linux capabilities, and `no-new-privileges
 The upstream linter's security-option warning is intentional: that option **reduces**
 privileges rather than granting host access.
 
-### Release 2026.11.19.4
+### Release 2026.11.20.1
+
+- Focus new analyses on site, partial-site and inverter outages. Remove site/
+  inverter underperformance calculations, their visual filters and the recurring
+  inverter-underperformance section; retain telemetry/data-quality findings.
+- Use supplied timestamped Expected Production as the outage-loss reference.
+  Missing estimates stay unknown; genuine measured zero remains zero.
+- Delete an individual analysis with confirmation in **Manage analyses**, without
+  deleting source data, settings, other analyses or retained review evidence.
+- Shorten the Findings Method explanation. Rerun an existing analysis explicitly
+  to use the new method; this update does not rewrite saved analyses or reset
+  analyst reviews automatically.
+- Back up complete app storage, including the private VCOM key, before updating.
+
+### Previous release 2026.11.19.4
 
 - Fix VCOM historical downloads rejected with HTTP400 by sending whole-second
   UTC date parameters while preserving the exact requested instants.
