@@ -4,9 +4,9 @@ storage:
   dataRoot: data
 category: finance
 name: Sol Diagnostics
-version: "2026.11.19.3"
+version: "2026.11.19.4"
 tagline: Analyze solar farm performance and track production losses
-icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.19.3/public/favicon.svg
+icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.19.4/public/favicon.svg
 description: >-
   Diagnose solar farm performance using your own locally stored data. Configure
   sites, arrays, inverters, and transformers; import performance CSVs; review
@@ -23,18 +23,17 @@ description: >-
   lookups use external services. Closing the browser can pause an unfinished
   analysis until a later request resumes it.
 releaseNotes: >-
-  Fix Download range silently doing nothing when Sol Diagnostics is opened over
-  ordinary HTTP, including Umbrel's local-network URL. Use secure compatible
-  request identifiers and show a visible error if a request cannot be created
-  before submission.
+  Fix historical VCOM downloads failing with HTTP 400 by sending whole-second
+  UTC date parameters instead of fractional-second timestamps. Preserve exact
+  requested instants, saved plans, request identifiers, completed responses,
+  timezone boundaries, and normalization.
 
 
-  Exact-request verification, duplicate-action guards, explicit preview/Apply,
-  overlap approval, saved credentials, and retained data remain unchanged. No
-  schema, dependency, provider, scheduling, or analysis changes. Back up the
-  complete app storage before updating, including all SQLite databases,
-  state/object files, and the private VCOM master key. This update does not run
-  a live VCOM download.
+  Explicit preview/Apply, overlap approval, saved credentials, mappings, and
+  retained data remain unchanged. No schema, dependency, scheduling, or analysis
+  changes. Back up complete app storage before updating, including all SQLite
+  databases, state/object files, and the private VCOM master key. This update
+  does not automatically retry a failed download or import data.
 developer: LeroyZanzibar
 website: https://github.com/LeroyZanzibar/sol-diagnostics
 dependencies: []

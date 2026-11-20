@@ -18,7 +18,7 @@ This package does not import standalone data.
 ## Sol Diagnostics
 
 - App ID: `leroys-sol-diagnostics` (keep this stable across updates).
-- Package/application version: **2026.11.19.3** ([release notes](https://github.com/LeroyZanzibar/sol-diagnostics/releases/tag/v2026.11.19.3)).
+- Package/application version: **2026.11.19.4** ([release notes](https://github.com/LeroyZanzibar/sol-diagnostics/releases/tag/v2026.11.19.4)).
 - Source: https://github.com/LeroyZanzibar/sol-diagnostics
 - Image: `ghcr.io/leroyzanzibar/sol-diagnostics`
 - Browser launch port: **3090** through Umbrel's app proxy (internal server port 3080).
@@ -43,7 +43,17 @@ filesystem, a limited `/tmp`, dropped Linux capabilities, and `no-new-privileges
 The upstream linter's security-option warning is intentional: that option **reduces**
 privileges rather than granting host access.
 
-### Release 2026.11.19.3
+### Release 2026.11.19.4
+
+- Fix VCOM historical downloads rejected with HTTP400 by sending whole-second
+  UTC date parameters while preserving the exact requested instants.
+- Preserve immutable saved plans, request IDs/hashes, completed responses,
+  timezone boundaries, normalization and explicit preview/Apply.
+- Keep credentials, mappings and retained data unchanged. No schema, dependency,
+  scheduler or analysis changes; no automatic failed-download retry or import.
+- Back up complete app storage, including the private VCOM key, before updating.
+
+### Previous release 2026.11.19.3
 
 - Fix **Download range** silently doing nothing on ordinary HTTP connections,
   including Umbrel's local-network URL, with secure compatible request IDs.
