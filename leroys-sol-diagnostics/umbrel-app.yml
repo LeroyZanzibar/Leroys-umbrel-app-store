@@ -4,13 +4,14 @@ storage:
   dataRoot: data
 category: finance
 name: Sol Diagnostics
-version: "2026.11.19.4"
+version: "2026.11.20.1"
 tagline: Analyze solar farm performance and track production losses
-icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.19.4/public/favicon.svg
+icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.20.1/public/favicon.svg
 description: >-
   Diagnose solar farm performance using your own locally stored data. Configure
-  sites, arrays, inverters, and transformers; import performance CSVs; review
-  detected issues and recurring losses; and track maintenance events.
+  sites, arrays, inverters, and transformers; import performance CSVs; identify
+  site and inverter outages, quantify lost production, review telemetry gaps,
+  and track maintenance events.
 
 
   Sign in as admin using the app password shown by Umbrel. Your existing Umbrel
@@ -23,17 +24,20 @@ description: >-
   lookups use external services. Closing the browser can pause an unfinished
   analysis until a later request resumes it.
 releaseNotes: >-
-  Fix historical VCOM downloads failing with HTTP 400 by sending whole-second
-  UTC date parameters instead of fractional-second timestamps. Preserve exact
-  requested instants, saved plans, request identifiers, completed responses,
-  timezone boundaries, and normalization.
+  Focus new analyses on site, partial-site, and inverter outages with separate
+  telemetry and data-quality findings. Remove site/inverter underperformance
+  calculations, their visual filters, and recurring-underperformance sections.
+  Use supplied timestamped Expected Production for outage-loss calculations;
+  unavailable estimates remain unknown instead of becoming fabricated zeros.
 
 
-  Explicit preview/Apply, overlap approval, saved credentials, mappings, and
-  retained data remain unchanged. No schema, dependency, scheduling, or analysis
-  changes. Back up complete app storage before updating, including all SQLite
-  databases, state/object files, and the private VCOM master key. This update
-  does not automatically retry a failed download or import data.
+  Add confirmed deletion in Manage analyses and simplify the Findings Method.
+  Preserve source data, settings, other analyses, and retained review evidence.
+  Rerun an existing analysis explicitly to use the new method; upgrading does
+  not rewrite saved analyses, reset analyst reviews, import data, or start an
+  analysis automatically. Back up complete app storage before updating,
+  including all SQLite databases, state/object files, and the private VCOM
+  master key.
 developer: LeroyZanzibar
 website: https://github.com/LeroyZanzibar/sol-diagnostics
 dependencies: []
