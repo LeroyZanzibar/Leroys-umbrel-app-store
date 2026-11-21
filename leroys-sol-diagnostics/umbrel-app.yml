@@ -4,9 +4,9 @@ storage:
   dataRoot: data
 category: finance
 name: Sol Diagnostics
-version: "2026.11.20.1"
+version: "2026.11.21.1"
 tagline: Analyze solar farm performance and track production losses
-icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.20.1/public/favicon.svg
+icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.21.1/public/favicon.svg
 description: >-
   Diagnose solar farm performance using your own locally stored data. Configure
   sites, arrays, inverters, and transformers; import performance CSVs; identify
@@ -24,20 +24,24 @@ description: >-
   lookups use external services. Closing the browser can pause an unfinished
   analysis until a later request resumes it.
 releaseNotes: >-
-  Focus new analyses on site, partial-site, and inverter outages with separate
-  telemetry and data-quality findings. Remove site/inverter underperformance
-  calculations, their visual filters, and recurring-underperformance sections.
-  Use supplied timestamped Expected Production for outage-loss calculations;
-  unavailable estimates remain unknown instead of becoming fabricated zeros.
+  Add saved monthly utility production, revenue, energy use, and invoice cost
+  with explicit Edit, Save, and Cancel. Keep entered precision and round only
+  the display; a single present production category still supplies the total.
 
 
-  Add confirmed deletion in Manage analyses and simplify the Findings Method.
-  Preserve source data, settings, other analyses, and retained review evidence.
-  Rerun an existing analysis explicitly to use the new method; upgrading does
-  not rewrite saved analyses, reset analyst reviews, import data, or start an
-  analysis automatically. Back up complete app storage before updating,
-  including all SQLite databases, state/object files, and the private VCOM
-  master key.
+  Set twelve calendar-month projection baselines, operations start, and annual
+  degradation, with impact preview and a continuous 300-month schedule. Prorate
+  the first month and apply anniversary-weighted production/revenue degradation;
+  insolation does not degrade and an unspecified rate remains blank.
+
+
+  Compare monthly Expected Production and Actual insolation with saved utility
+  actuals and projections. Refresh comparisons after committed imports and
+  corrections without rerunning outage analysis or replacing manual values.
+  Preserve source data, settings, analyses, and review history. This update adds
+  monthly storage tables but does not import data, reset reviews, or start an
+  analysis. Back up complete app storage, including SQLite databases, objects,
+  and the private VCOM master key, before updating.
 developer: LeroyZanzibar
 website: https://github.com/LeroyZanzibar/sol-diagnostics
 dependencies: []

@@ -18,7 +18,7 @@ This package does not import standalone data.
 ## Sol Diagnostics
 
 - App ID: `leroys-sol-diagnostics` (keep this stable across updates).
-- Package/application version: **2026.11.20.1** ([release notes](https://github.com/LeroyZanzibar/sol-diagnostics/releases/tag/v2026.11.20.1)).
+- Package/application version: **2026.11.21.1** ([release notes](https://github.com/LeroyZanzibar/sol-diagnostics/releases/tag/v2026.11.21.1)).
 - Source: https://github.com/LeroyZanzibar/sol-diagnostics
 - Image: `ghcr.io/leroyzanzibar/sol-diagnostics`
 - Browser launch port: **3090** through Umbrel's app proxy (internal server port 3080).
@@ -43,7 +43,21 @@ filesystem, a limited `/tmp`, dropped Linux capabilities, and `no-new-privileges
 The upstream linter's security-option warning is intentional: that option **reduces**
 privileges rather than granting host access.
 
-### Release 2026.11.20.1
+### Release 2026.11.21.1
+
+- Save monthly utility production, revenue, energy used and invoice cost with
+  explicit Edit / Save / Cancel. Preserve entered precision; round display only.
+- Maintain twelve calendar-month projection baselines and operations/degradation
+  settings, with impact preview and a continuous 300-month projection schedule.
+- Prorate the first partial month and weight production/revenue degradation at
+  exact anniversaries. Insolation does not degrade; missing rates stay blank.
+- Compare revision-pinned monthly Expected Production and Actual insolation;
+  committed imports/corrections refresh the comparisons without an outage rerun.
+- Add monthly storage tables while preserving saved actuals, source measurements,
+  analyses and review history. No automatic import, analysis or review reset.
+- Back up complete app storage, including the private VCOM key, before updating.
+
+### Previous release 2026.11.20.1
 
 - Focus new analyses on site, partial-site and inverter outages. Remove site/
   inverter underperformance calculations, their visual filters and the recurring
