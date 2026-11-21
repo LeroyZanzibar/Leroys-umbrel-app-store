@@ -18,7 +18,7 @@ This package does not import standalone data.
 ## Sol Diagnostics
 
 - App ID: `leroys-sol-diagnostics` (keep this stable across updates).
-- Package/application version: **2026.11.21.1** ([release notes](https://github.com/LeroyZanzibar/sol-diagnostics/releases/tag/v2026.11.21.1)).
+- Package/application version: **2026.11.21.2** ([release notes](https://github.com/LeroyZanzibar/sol-diagnostics/releases/tag/v2026.11.21.2)).
 - Source: https://github.com/LeroyZanzibar/sol-diagnostics
 - Image: `ghcr.io/leroyzanzibar/sol-diagnostics`
 - Browser launch port: **3090** through Umbrel's app proxy (internal server port 3080).
@@ -43,7 +43,22 @@ filesystem, a limited `/tmp`, dropped Linux capabilities, and `no-new-privileges
 The upstream linter's security-option warning is intentional: that option **reduces**
 privileges rather than granting host access.
 
-### Release 2026.11.21.1
+### Release 2026.11.21.2
+
+- Add an optional **Unpaid energy** utility input with exact saved precision.
+  Production totals include whichever on-peak, off-peak and unpaid values are
+  present; an unpaid-only month is valid and an empty month stays blank.
+- Show twelve read-only monthly metrics in **Performance data → Projections →
+  Monthly comparison**: specific yields, performance ratios, production,
+  insolation and revenue comparisons, IAPR and IAR.
+- Display specific yields to two decimals and percentages to the nearest whole
+  percentage point, preserving exact inputs and underlying calculated values.
+- Add a nullable storage column without inventing historical unpaid values.
+  Preserve source data, settings, saved analyses and review history. Unpaid
+  production does not create revenue or automatically rerun analysis.
+- Back up complete app storage, including the private VCOM key, before updating.
+
+### Previous release 2026.11.21.1
 
 - Save monthly utility production, revenue, energy used and invoice cost with
   explicit Edit / Save / Cancel. Preserve entered precision; round display only.
