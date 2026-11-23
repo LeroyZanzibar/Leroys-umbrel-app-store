@@ -18,7 +18,7 @@ This package does not import standalone data.
 ## Sol Diagnostics
 
 - App ID: `leroys-sol-diagnostics` (keep this stable across updates).
-- Package/application version: **2026.11.21.2** ([release notes](https://github.com/LeroyZanzibar/sol-diagnostics/releases/tag/v2026.11.21.2)).
+- Package/application version: **2026.11.23.1** ([release notes](https://github.com/LeroyZanzibar/sol-diagnostics/releases/tag/v2026.11.23.1)).
 - Source: https://github.com/LeroyZanzibar/sol-diagnostics
 - Image: `ghcr.io/leroyzanzibar/sol-diagnostics`
 - Browser launch port: **3090** through Umbrel's app proxy (internal server port 3080).
@@ -43,7 +43,20 @@ filesystem, a limited `/tmp`, dropped Linux capabilities, and `no-new-privileges
 The upstream linter's security-option warning is intentional: that option **reduces**
 privileges rather than granting host access.
 
-### Release 2026.11.21.2
+### Release 2026.11.23.1
+
+- Add **Visuals → Charts** with compact date/metric controls, quick presets,
+  inclusive monthly ranges, line/bar/table views and matching-month year comparisons.
+- Inspect values using hover, keyboard or touch; preserve zero versus missing,
+  partial coverage and source details. Keep different units on appropriate axes.
+- Save complete setups in the **My views** dropdown, restoring chart settings
+  without switching sites. Saved views persist across restart and recreation.
+- Read authoritative monthly snapshots without changing formulas or saved inputs.
+  Add only an independent saved-view table; retain source data, settings, analyses
+  and reviews. No automatic imports or analysis runs.
+- Back up complete app storage, including the private VCOM key, before updating.
+
+### Previous release 2026.11.21.2
 
 - Add an optional **Unpaid energy** utility input with exact saved precision.
   Production totals include whichever on-peak, off-peak and unpaid values are
