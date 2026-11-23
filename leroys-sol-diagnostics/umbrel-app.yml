@@ -4,9 +4,9 @@ storage:
   dataRoot: data
 category: finance
 name: Sol Diagnostics
-version: "2026.11.21.2"
+version: "2026.11.23.1"
 tagline: Analyze solar farm performance and track production losses
-icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.21.2/public/favicon.svg
+icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.23.1/public/favicon.svg
 description: >-
   Diagnose solar farm performance using your own locally stored data. Configure
   sites, arrays, inverters, and transformers; import performance CSVs; identify
@@ -24,24 +24,22 @@ description: >-
   lookups use external services. Closing the browser can pause an unfinished
   analysis until a later request resumes it.
 releaseNotes: >-
-  Add optional Unpaid energy to monthly utility inputs. Production totals include
-  every present on-peak, off-peak, and unpaid value; unpaid-only months work and
-  all-blank months remain blank. Preserve exact entered values through saves.
+  Add Visuals, Charts with compact controls, inclusive monthly ranges, line,
+  grouped bar and table views. Choose from 24 metrics or quick presets, compare
+  matching calendar months across years, and inspect values with mouse, keyboard
+  or touch. Preserve missing versus zero values, partial coverage and source details.
 
 
-  Add twelve read-only calculated metrics to Performance data, Projections,
-  Monthly comparison: budgeted and actual specific yields, their ratio, budgeted
-  and actual performance ratios, their ratio, insolation, production versus
-  projection and Expected Production, revenue ratio, IAPR, and IAR. Show specific
-  yields to two decimals and percentages to the nearest whole percentage point,
-  without rounding the underlying values. Unpaid energy does not create revenue.
+  Save chart setups in the My views dropdown and restore dates, metrics, chart
+  type and year comparisons without switching sites. Saved views persist across
+  restarts. Charts read existing monthly snapshots without changing calculations
+  or saved inputs.
 
 
-  This update adds a nullable unpaid-energy storage column without backfilling
-  old months. Preserve existing actuals, source data, settings, analyses, and
-  review history. No automatic imports, review resets, or analysis runs. Back up
-  complete app storage, including SQLite databases, objects, and the private
-  VCOM master key, before updating.
+  This update adds an independent saved-view table. Preserve existing monthly
+  data, source files, settings, analyses and review history. No automatic imports,
+  review resets or analysis runs. Back up complete app storage, including SQLite
+  databases, objects and the private VCOM master key, before updating.
 developer: LeroyZanzibar
 website: https://github.com/LeroyZanzibar/sol-diagnostics
 dependencies: []
