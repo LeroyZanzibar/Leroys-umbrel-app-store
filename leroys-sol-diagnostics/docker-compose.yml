@@ -5,7 +5,7 @@ services:
       APP_PORT: 3080
 
   server:
-    image: ghcr.io/leroyzanzibar/sol-diagnostics:2026.11.25.1@sha256:bbc35c3ccdb9d05ddba6a1ed5211a2c21f2884e69c47bda85a2a3e3b2ecdb044
+    image: ghcr.io/leroyzanzibar/sol-diagnostics:2026.11.25.2@sha256:c120a553aad7e9563d1024161f76b4a0aea26a06e252330c83dee255deb15bb3
     user: "1000:1000"
     init: true
     restart: on-failure

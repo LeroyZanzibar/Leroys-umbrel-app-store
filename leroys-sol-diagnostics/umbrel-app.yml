@@ -4,9 +4,9 @@ storage:
   dataRoot: data
 category: finance
 name: Sol Diagnostics
-version: "2026.11.25.1"
+version: "2026.11.25.2"
 tagline: Analyze solar farm performance and track production losses
-icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.25.1/public/favicon.svg
+icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.25.2/public/favicon.svg
 description: >-
   Diagnose solar farm performance using your own locally stored data. Configure
   sites, arrays, inverters, and transformers; import performance CSVs; identify
@@ -24,24 +24,21 @@ description: >-
   lookups use external services. Closing the browser can pause an unfinished
   analysis until a later request resumes it.
 releaseNotes: >-
-  Show only selected metrics in compact chart hover popups while retaining
-  detailed pinned, keyboard and table source information. Add monthly Confirmed
-  estimated loss from the current published analysis, refreshed as reviews change
-  without double counting or replacing missing values with zero.
+  Fix missing Actual Insolation in monthly data and charts. Use uploaded hourly
+  interval energy from the site's mapped POA series: sum Wh/m² by local calendar
+  month and divide by 1,000. Onsite, satellite, blended and generic uploaded
+  readings are included without requiring physical-sensor import provenance.
 
 
-  Use authenticated physical POA sensor evidence for monthly Actual Insolation
-  and dependent metrics, without satellite or GHI fallback. Historical gaps
-  remain unavailable when measured sensor evidence cannot be established.
-  Simplify Findings and align its compact reporting-period controls while
-  preserving review actions, date validation and historical protections.
+  Preserve explicit series selection and historical same-equipment measurement
+  aliases without double counting. Retain missing values, zeros and partial
+  coverage. Existing derived monthly caches refresh automatically.
 
 
-  No schema migration or dependency changes. Derived reporting caches refresh;
-  canonical measurements, saved analyses, reviews, monthly inputs and chart views
-  are preserved. No automatic imports, backfill or analysis runs. Back up complete
-  app data, including SQLite databases, objects and the private VCOM master key,
-  before updating.
+  No schema migration or dependency changes. Canonical measurements, saved
+  analyses, reviews, monthly inputs and chart views are preserved. No automatic
+  downloads, imports or analysis runs. Back up complete app data, including
+  databases, objects and the private VCOM master key, before updating.
 developer: LeroyZanzibar
 website: https://github.com/LeroyZanzibar/sol-diagnostics
 dependencies: []
