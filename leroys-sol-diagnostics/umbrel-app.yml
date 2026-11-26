@@ -4,9 +4,9 @@ storage:
   dataRoot: data
 category: finance
 name: Sol Diagnostics
-version: "2026.11.25.3"
+version: "2026.11.26.1"
 tagline: Analyze solar farm performance and track production losses
-icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.25.3/public/favicon.svg
+icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.26.1/public/favicon.svg
 description: >-
   Diagnose solar farm performance using your own locally stored data. Configure
   sites, arrays, inverters, and transformers; import performance CSVs; identify
@@ -24,13 +24,16 @@ description: >-
   lookups use external services. Closing the browser can pause an unfinished
   analysis until a later request resumes it.
 releaseNotes: >-
-  Stop automatic Charts polling and background refresh on focus, visibility
-  changes, or saved-preference changes. Charts load when the page opens and
-  when you change sites. Explicit Retry remains available after a loading error.
+  Add Confirmed and Unconfirmed estimated loss to monthly Charts, including
+  saved views and prior-year comparisons. Monthly comparison adds read-only
+  Unconfirmed loss for effective Unreviewed or Needs review findings from the
+  current published analysis, excluding effective Confirmed/Dismissed and
+  historical results. Preserve exact values, site-local months and unknown/zero
+  distinctions; Charts retains mount/site/Retry-only refresh behavior.
 
 
-  Preserve chart controls, saved views, source details and all stored data.
-  No backend, schema, dependency or configuration changes. No automatic
+  Add persistent derived monthly Unconfirmed snapshots without rewriting
+  utility inputs, canonical telemetry, saved analyses or reviews. No automatic
   downloads, imports or analysis runs. Back up complete app data, including
   databases, objects and the private VCOM master key, before updating.
 developer: LeroyZanzibar
