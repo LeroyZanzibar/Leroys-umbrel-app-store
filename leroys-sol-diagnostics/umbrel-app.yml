@@ -4,9 +4,9 @@ storage:
   dataRoot: data
 category: finance
 name: Sol Diagnostics
-version: "2026.11.27.1"
+version: "2026.11.27.2"
 tagline: Analyze solar farm performance and track production losses
-icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.27.1/public/favicon.svg
+icon: https://raw.githubusercontent.com/LeroyZanzibar/sol-diagnostics/v2026.11.27.2/public/favicon.svg
 description: >-
   Diagnose solar farm performance using your own locally stored data. Configure
   sites, arrays, inverters, and transformers; import performance CSVs; identify
@@ -24,11 +24,9 @@ description: >-
   lookups use external services. Closing the browser can pause an unfinished
   analysis until a later request resumes it.
 releaseNotes: >-
-  Add a Production Waterfall to Visuals → Charts. Review projected production,
-  expected production, confirmed estimated losses, and utility actual for the
-  selected period. The reconciliation panel reports all energy in kWh and
-  distinguishes unexplained variance from confirmed losses. Save Waterfall
-  setups in My views. No data migration. Back up complete app data before updating.
+  Production Waterfall shows partial kWh values already supplied by the app.
+  Smaller chart labels and aligned reconciliation amounts match Monthly Charts.
+  No data migration. Back up complete app data before updating.
 developer: LeroyZanzibar
 website: https://github.com/LeroyZanzibar/sol-diagnostics
 dependencies: []
